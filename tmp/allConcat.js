@@ -1,7 +1,7 @@
 var LookUp = require('./../js/lookup.js').getDoctors;
 
-var outputDocInfo = function(firstName, lastName, title, specialties, insurancesPlan) {
-  $('#output').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "Specialties: " + specialties + "</li>" + "<li>" + "Insurance Plan(s): " + "<ul>" + "<li>" + insurancesPlan + "</li>" + "</ul>" + "</li>" + "<br>");
+var outputDocInfo = function(firstName, lastName, title, specialties, insurancePlan, address) {
+  $('#output').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "Specialties: " + specialties + "</li>" + "<li>" + "Insurance Plan(s): " + insurancePlan + "</li>" + "<li>" + "Address: " + address + "</li>" + "<br>");
 };
 
 $(document).ready(function() {
@@ -14,11 +14,7 @@ $(document).ready(function() {
       $("#lookup-form").hide();
       $('#outputIssue').append(checkedInput + "<br>");
     });
-    // var output = LookUp(input);
-    // $("#solution").html(output);
-    // var inputLetter = $('#letter').val();
-    // var output = simpleLetterSearch.getLetter(inputLetter);
-    // $("#solution").text(output);
-    // console.log(output);
   });
 });
+
+//FIX INSURANCE FOR LOOP

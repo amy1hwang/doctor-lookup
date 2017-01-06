@@ -4,8 +4,8 @@ exports.apiKey = "030c786654c2b6ca645e6cfcc0628f62"
 },{}],2:[function(require,module,exports){
 var LookUp = require('./../js/lookup.js').getDoctors;
 
-var outputDocInfo = function(firstName, lastName, title, specialties, insurancesPlan) {
-  $('#output').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "Specialties: " + specialties + "</li>" + "<li>" + "Insurance Plan(s): " + "<ul>" + "<li>" + insurancesPlan + "</li>" + "</ul>" + "</li>" + "<br>");
+var outputDocInfo = function(firstName, lastName, title, specialties, insurancePlan, address) {
+  $('#output').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "Specialties: " + specialties + "</li>" + "<li>" + "Insurance Plan(s): " + insurancePlan + "</li>" + "<li>" + "Address: " + address + "</li>" + "<br>");
 };
 
 $(document).ready(function() {
@@ -18,14 +18,10 @@ $(document).ready(function() {
       $("#lookup-form").hide();
       $('#outputIssue').append(checkedInput + "<br>");
     });
-    // var output = LookUp(input);
-    // $("#solution").html(output);
-    // var inputLetter = $('#letter').val();
-    // var output = simpleLetterSearch.getLetter(inputLetter);
-    // $("#solution").text(output);
-    // console.log(output);
   });
 });
+
+//FIX INSURANCE FOR LOOP
 
 },{"./../js/lookup.js":3}],3:[function(require,module,exports){
 
@@ -37,16 +33,25 @@ var getDoctors = function(checkedInput, outputDocInfo) {
       console.log(result);
       for(var i = 0; i < result.data.length; i++) {
         var data = result.data[i];
-        var lastName = data.profile.last_name;
-        var firstName = data.profile.first_name;
-        var title = data.profile.title;
+        var profile = data.profile;
+        var lastName = profile.last_name;
+        var firstName = profile.first_name;
+        var title = profile.title;
         var specialties = data.specialties[0].name;
         console.log(lastName, specialties);
         for(var j = 0; j < data.insurances.length; j++) {
-          var insurancesPlan = data.insurances[j].insurance_plan.name;
-          console.log(insurancesPlan);
-          outputDocInfo(firstName, lastName, title, specialties, insurancesPlan);
+          var insurancePlan = data.insurances[j].insurance_plan.name;
+          // console.log(insurancePlan);
         }
+        var location = data.practices[0].visit_address;
+        var street = location.street;
+        var street2 = location.street2;
+        var city = location.city;
+        var state = location.state;
+        var zip = location.zip;
+        var address = street + " " + street2 + "<br>" + city + ", " + state + "<br>" + zip;
+        console.log(address);
+        outputDocInfo(firstName, lastName, title, specialties, address);
       }
     })
    .fail(function(error){

@@ -7,16 +7,25 @@ var getDoctors = function(checkedInput, outputDocInfo) {
       console.log(result);
       for(var i = 0; i < result.data.length; i++) {
         var data = result.data[i];
-        var lastName = data.profile.last_name;
-        var firstName = data.profile.first_name;
-        var title = data.profile.title;
+        var profile = data.profile;
+        var lastName = profile.last_name;
+        var firstName = profile.first_name;
+        var title = profile.title;
         var specialties = data.specialties[0].name;
         console.log(lastName, specialties);
         for(var j = 0; j < data.insurances.length; j++) {
-          var insurancesPlan = data.insurances[j].insurance_plan.name;
-          console.log(insurancesPlan);
-          outputDocInfo(firstName, lastName, title, specialties, insurancesPlan);
+          var insurancePlan = data.insurances[j].insurance_plan.name;
+          // console.log(insurancePlan);
         }
+        var location = data.practices[0].visit_address;
+        var street = location.street;
+        var street2 = location.street2;
+        var city = location.city;
+        var state = location.state;
+        var zip = location.zip;
+        var address = street + " " + street2 + "<br>" + city + ", " + state + "<br>" + zip;
+        console.log(address);
+        outputDocInfo(firstName, lastName, title, specialties, address);
       }
     })
    .fail(function(error){
