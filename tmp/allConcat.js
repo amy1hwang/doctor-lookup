@@ -1,7 +1,7 @@
 var LookUp = require('./../js/lookup.js').getDoctors;
 
-var outputDocInfo = function(firstName, lastName, title, specialties, address, contact, insurancePlan) {
-  $('#output').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "Specialties: " + specialties + "</li>" + "<li>" + "Address: " + address + "</li>" + "<li>" + "contact: " + contact + "</li>" + "<li>" + "Insurance Plan(s): " + insurancePlan + "</li>"+ "<br>");
+var outputDocInfo = function(firstName, lastName, title, specialties, address, contact) {
+  $('#outputIssue').append("<ul><li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "<strong>Specialties: </strong>" + specialties + "</li>" + "<li>" + "<strong>Address: </strong>" + address + "</li>" + "<li>" + "<strong>contact: </strong>" + contact + "</li>" + "</ul>");
   // $('#outputInsurce').append("<li>" + insurancePlan + "</li>");
 };
 
@@ -13,9 +13,10 @@ $(document).ready(function() {
       var checkedInput = $(this).val();
       LookUp(checkedInput, outputDocInfo);
       $("#lookup-form").hide();
-      $('#outputIssue').append(checkedInput + "<br>");
+      $('#output').append("<li id='outputIssue'>" + "Medical Issue: " + checkedInput + "</li><br>");
     });
   });
 });
 
 //FIX INSURANCE FOR LOOP
+//FIX OUTPUTISSUE POSITION

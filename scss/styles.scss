@@ -1,0 +1,35 @@
+
+
+#outputIssue {
+  font-weight: bold;
+  font-size: 1.4em;
+  color: gray;
+  list-style: none;
+  li {
+    list-style: none;
+    color: lighten(black, 30%);
+    font-weight: normal;
+    font-size: .7em;
+    li {
+      font-size: inherit;
+    }
+  }
+  #doctor {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: .9em;
+    color: black;
+    line-height: 2.5em;
+  }
+}
+
+
+body {
+  background: honeydew;
+  padding: 20px 10%;
+}
+
+
+button {
+  margin: 40px 0;
+}

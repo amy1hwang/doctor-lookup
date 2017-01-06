@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="build/css/vendor.css">
+    <link rel="stylesheet" href="build/css/styles.css">
     <script src="build/js/vendor.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
     <title>Doctor Lookup</title>
@@ -9,110 +10,118 @@
   <body>
     <h1>Doctor Lookup</h1>
     <form id="lookup-form">
-      <label for="issues">Check the medical issue(s) you have:</label>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Allergies">Allergies</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Alzheimer's">Alzheime's</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Arthritis">Arthritis</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Asthma">Asthma</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Blood Pressure">Blood Pressure</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Cancer">Cancer</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Child's Health">Child's Health</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Cholestrerol">Cholestrerol</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Chronic Pain">Chronic Pain</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Cold & Flu">Cold & Flu</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Dental">Dental</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Depression">Depression</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Diabetes">Diabetes</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Digestion">Digestion</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Eyesight">Eyesight</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Hearing">Hearing</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Heart">Heart</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="HIV/AIDS">HIV/AIDS</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Lung Condition">Lung Condition</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Menopause">Menopause</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Men's Health">Men's Health</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Mental Health">Mental Health</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Migraine">Migraine</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Neurology">Neurology</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Oral Health">Oral Health</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Pregnancy">Pregnancy</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Senior Health">Senior Health</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Sexual Health">Sexual Health</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Skin">Skin</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Sleep">Sleep</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Thyroid">Thyroid</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Travel Health">Travel Health</label>
-      </div>
-      <div class="checkbox">
-        <label><input type="checkbox" value="Women's Health">Women's Health</label>
+      <h3 id="promp">Check the medical issue(s) you have:</h3>
+      <div class="colunms">
+        <div class="col-xs-4">
+          <div class="checkbox">
+            <label><input type="checkbox" value="Allergies">Allergies</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Alzheimer's">Alzheime's</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Arthritis">Arthritis</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Asthma">Asthma</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Blood Pressure">Blood Pressure</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Cancer">Cancer</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Child's Health">Child's Health</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Cholestrerol">Cholestrerol</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Chronic Pain">Chronic Pain</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Cold & Flu">Cold & Flu</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Dental">Dental</label>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="checkbox">
+            <label><input type="checkbox" value="Depression">Depression</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Diabetes">Diabetes</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Digestion">Digestion</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Eyesight">Eyesight</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Hearing">Hearing</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Heart">Heart</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="HIV/AIDS">HIV/AIDS</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Lung Condition">Lung Condition</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Menopause">Menopause</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Men's Health">Men's Health</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Mental Health">Mental Health</label>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="checkbox">
+            <label><input type="checkbox" value="Migraine">Migraine</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Neurology">Neurology</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Oral Health">Oral Health</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Pregnancy">Pregnancy</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Senior Health">Senior Health</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Sexual Health">Sexual Health</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Skin">Skin</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Sleep">Sleep</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Thyroid">Thyroid</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Travel Health">Travel Health</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="Women's Health">Women's Health</label>
+          </div>
+        </div>
       </div>
       <button type="submit">Submit</button>
     </form>
     <ul id="output">
-      <h5 id="outputIssue">Medical Issue: </h5>
+      <!-- <li id="outputIssue">Medical Issue: </li> -->
     </ul>
   </body>
 </html>

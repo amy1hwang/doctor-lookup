@@ -26,10 +26,9 @@ var getDoctors = function(checkedInput, outputDocInfo) {
         var contact = data.practices[0].phones[0].number;
         //insurances
         for(var j = 0; j < data.insurances.length; j++) {
-          var insurance = data.insurances[j].insurance_plan.name;
-          var insurancePlan = "<ul><li>" + insurance + "</li></ul>";
-          outputDocInfo(firstName, lastName, title, specialties, address, contact, insurancePlan);
+          var insurancePlan = data.insurances[j].insurance_plan.name;
         }
+        outputDocInfo(firstName, lastName, title, specialties, address, contact);
       }
     })
    .fail(function(error){
