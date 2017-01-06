@@ -4,8 +4,9 @@ exports.apiKey = "030c786654c2b6ca645e6cfcc0628f62"
 },{}],2:[function(require,module,exports){
 var LookUp = require('./../js/lookup.js').getDoctors;
 
-var outputDocInfo = function(firstName, lastName, title, specialties, insurancePlan, address) {
-  $('#output').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "Specialties: " + specialties + "</li>" + "<li>" + "Insurance Plan(s): " + insurancePlan + "</li>" + "<li>" + "Address: " + address + "</li>" + "<br>");
+var outputDocInfo = function(firstName, lastName, title, specialties, address, contact, insurancePlan) {
+  $('#output').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "Specialties: " + specialties + "</li>" + "<li>" + "Address: " + address + "</li>" + "<li>" + "contact: " + contact + "</li>" + "<li>" + "Insurance Plan(s): " + insurancePlan + "</li>"+ "<br>");
+  // $('#outputInsurce').append("<li>" + insurancePlan + "</li>");
 };
 
 $(document).ready(function() {
@@ -33,25 +34,29 @@ var getDoctors = function(checkedInput, outputDocInfo) {
       console.log(result);
       for(var i = 0; i < result.data.length; i++) {
         var data = result.data[i];
+        ///profile
         var profile = data.profile;
         var lastName = profile.last_name;
         var firstName = profile.first_name;
         var title = profile.title;
+        //specialties
         var specialties = data.specialties[0].name;
-        console.log(lastName, specialties);
-        for(var j = 0; j < data.insurances.length; j++) {
-          var insurancePlan = data.insurances[j].insurance_plan.name;
-          // console.log(insurancePlan);
-        }
+        //location
         var location = data.practices[0].visit_address;
         var street = location.street;
         var street2 = location.street2;
         var city = location.city;
         var state = location.state;
         var zip = location.zip;
-        var address = street + " " + street2 + "<br>" + city + ", " + state + "<br>" + zip;
-        console.log(address);
-        outputDocInfo(firstName, lastName, title, specialties, address);
+        var address = "<ul><li>" + street + " " + street2 + "</li><li>" + city + ", " + state + "</li><li>" + zip + "</li></ul>";
+        //contact number
+        var contact = data.practices[0].phones[0].number;
+        //insurances
+        for(var j = 0; j < data.insurances.length; j++) {
+          var insurance = data.insurances[j].insurance_plan.name;
+          var insurancePlan = "<ul><li>" + insurance + "</li></ul>";
+          outputDocInfo(firstName, lastName, title, specialties, address, contact, insurancePlan);
+        }
       }
     })
    .fail(function(error){

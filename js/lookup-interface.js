@@ -1,7 +1,8 @@
 var LookUp = require('./../js/lookup.js').getDoctors;
 
-var outputDocInfo = function(firstName, lastName, title, specialties, insurancePlan, address) {
-  $('#output').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "Specialties: " + specialties + "</li>" + "<li>" + "Insurance Plan(s): " + insurancePlan + "</li>" + "<li>" + "Address: " + address + "</li>" + "<br>");
+var outputDocInfo = function(firstName, lastName, title, specialties, address, contact, insurancePlan) {
+  $('#output').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "Specialties: " + specialties + "</li>" + "<li>" + "Address: " + address + "</li>" + "<li>" + "contact: " + contact + "</li>" + "<li>" + "Insurance Plan(s): " + insurancePlan + "</li>"+ "<br>");
+  // $('#outputInsurce').append("<li>" + insurancePlan + "</li>");
 };
 
 $(document).ready(function() {
