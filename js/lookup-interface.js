@@ -1,12 +1,13 @@
 var LookUp = require('./../js/lookup.js').getDoctors;
 
-var outputDocInfo = function(firstName, lastName, title, specialties, address, contact) {
-  $('#outputIssue').append("<ul><li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "<strong>Specialties: </strong>" + specialties + "</li>" + "<li>" + "<strong>Address: </strong>" + address + "</li>" + "<li>" + "<strong>contact: </strong>" + contact + "</li>" + "</ul>");
-  // $('#outputInsurce').append("<li>" + insurancePlan + "</li>");
+var outputDocInfo = function(firstName, lastName, title, specialties, address, contact, checkedInput) {
+  // write all html output
+  $('.outputDoctors:last').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "<strong>Specialties: </strong>" + specialties + "</li>" + "<li>" + "<strong>Address: </strong>" + address + "</li>" + "<li>" + "<strong>contact: </strong>" + contact + "</li>");
 };
 
-var outputResults = function(result) {
+var outputResults = function(result, checkedInput) {
    console.log(result);
+   $('#output').append("<ul>" + "<li class='outputIssue'>" + "Medical Issue: " + checkedInput + "<ul class='outputDoctors'></ul></li>" + "</ul>");
    for(var i = 0; i < result.data.length; i++) {
      var data = result.data[i];
      ///profile
@@ -23,14 +24,15 @@ var outputResults = function(result) {
      var city = location.city;
      var state = location.state;
      var zip = location.zip;
-     var address = "<ul><li>" + street + " " + street2 + "</li><li>" + city + ", " + state + "</li><li>" + zip + "</li></ul>";
+     var address = "<ul><li>" + street + " " + street2 + "</li>" + "<li>" + city + ", " + state + "</li><li>" + zip + "</li></ul>";
      //contact number
      var contact = data.practices[0].phones[0].number;
      //insurances
      for(var j = 0; j < data.insurances.length; j++) {
        var insurancePlan = data.insurances[j].insurance_plan.name;
      }
-     outputDocInfo(firstName, lastName, title, specialties, address, contact);
+     outputDocInfo(firstName, lastName, title, specialties, address, contact, checkedInput);
+     console.log("Checked input", checkedInput);
    }
  }
 
@@ -40,12 +42,10 @@ $(document).ready(function() {
     var checked = $("input:checkbox:checked");
     checked.each(function() {
       var checkedInput = $(this).val();
-      LookUp(checkedInput, outputDocInfo, outputResults);
       $("#lookup-form").hide();
-      $('#output').append("<li id='outputIssue'>" + "Medical Issue: " + checkedInput + "</li><br>");
+
+
+      LookUp(checkedInput, outputDocInfo, outputResults);
     });
   });
 });
-
-//FIX INSURANCE FOR LOOP
-//FIX OUTPUTISSUE POSITION
