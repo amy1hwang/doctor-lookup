@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina|Harmattan" rel="stylesheet">
     <link rel="stylesheet" href="build/css/vendor.css">
     <link rel="stylesheet" href="build/css/styles.css">
     <script src="build/js/vendor.min.js"></script>
@@ -8,9 +9,18 @@
     <title>Doctor Lookup</title>
   </head>
   <body>
-    <h1>Doctor Lookup</h1>
+    <a class="header" href="/">
+      <div class="header-flex">
+        <h1>Doctor Lookup</h1>
+        <img src="doctor.png" alt="">
+      </div>
+      <h3 class="subtitle">Look up doctors around you</h3>
+    </a>
+    <div class="divider"></div>
+
+    <!-- input -->
     <form id="lookup-form">
-      <h3 id="promp">Check the medical issue(s) you have:</h3>
+      <h3 id="prompt">Check the medical issue(s) you have:</h3>
       <div class="colunms">
         <div class="col-xs-4">
           <div class="checkbox">
@@ -120,8 +130,9 @@
       </div>
       <button type="submit">Submit</button>
     </form>
+
+    <!-- result -->
     <div id="output">
-      <!-- <li id="outputIssue">Medical Issue: </li> -->
     </div>
   </body>
 </html>

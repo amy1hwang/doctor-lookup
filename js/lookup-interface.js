@@ -2,7 +2,7 @@ var LookUp = require('./../js/lookup.js').getDoctors;
 
 var outputDocInfo = function(firstName, lastName, title, specialties, address, contact, checkedInput) {
   // write all html output
-  $('.outputDoctors:last').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "<strong>Specialties: </strong>" + specialties + "</li>" + "<li>" + "<strong>Address: </strong>" + address + "</li>" + "<li>" + "<strong>contact: </strong>" + contact + "</li>");
+  $('.outputDoctors:last').append("<li id='doctor'>" + firstName + " " + lastName + ", " + title + "</li>" + "<li>" + "<strong>Specialties: </strong>" + specialties + "</li>" + "<li>" + "<strong>Address: </strong>" + address + "</li>" + "<li class='last-li'>" + "<strong>contact: </strong>" + contact + "</li>");
 };
 
 var outputResults = function(result, checkedInput) {
@@ -24,27 +24,27 @@ var outputResults = function(result, checkedInput) {
      var city = location.city;
      var state = location.state;
      var zip = location.zip;
-     var address = "<ul><li>" + street + " " + street2 + "</li>" + "<li>" + city + ", " + state + "</li><li>" + zip + "</li></ul>";
+     var address = "<ul id='address'><li>" + street + " " + street2 + "</li>" + "<li>" + city + ", " + state + "</li><li>" + zip + "</li></ul>";
      //contact number
      var contact = data.practices[0].phones[0].number;
-     //insurances
-     for(var j = 0; j < data.insurances.length; j++) {
-       var insurancePlan = data.insurances[j].insurance_plan.name;
-     }
+
      outputDocInfo(firstName, lastName, title, specialties, address, contact, checkedInput);
-     console.log("Checked input", checkedInput);
    }
  }
 
 $(document).ready(function() {
+
   $("#lookup-form").submit(function(event) {
     event.preventDefault();
+
+    if (!$("input").is(":checked")) {
+      alert("Please check the medial issue(s) you have.")
+    }
+
     var checked = $("input:checkbox:checked");
     checked.each(function() {
       var checkedInput = $(this).val();
       $("#lookup-form").hide();
-
-
       LookUp(checkedInput, outputDocInfo, outputResults);
     });
   });
