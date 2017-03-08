@@ -21,8 +21,8 @@ This webpage is for anyone to search doctors by their medical issue(s). When sea
 6. Run $ gulp build in Terminal.
 7. Run $ gulp serve in Terminal.
 
-# link to site on GitHub Pages
-https://amy1hwang.github.io/doctor-lookup
+# link to site 
+http://localhost:3000/
 
 # copyright and license information
 Copyright (c) 2016 Amy Hwang. This software is licensed under the Github license.
